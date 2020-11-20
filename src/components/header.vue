@@ -20,6 +20,7 @@
             <a href="#" onclick="location.href='login.html'">Log out</a>
         </ul>
         -->
+
         <router-view></router-view>
       </div>
     </nav>

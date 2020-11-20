@@ -5,6 +5,7 @@ import VueRouter from 'vue-router'
 //import header from "./components/header";
 import Home from "./components/Home";
 import header from "./components/header";
+import Login from "./components/Login";
 /*import store from "./store";*/
 
 Vue.config.productionTip = false
@@ -20,7 +21,8 @@ const routes = [
         path: "/header",
         name: "header",
         component: header
-    }
+    },
+    { path: '', component: Login },
 ];
 
 const router = new VueRouter({routes});
