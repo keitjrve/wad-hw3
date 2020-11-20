@@ -1,17 +1,17 @@
 <template>
   <div id="App">
-    <Header/>
+    <Login/>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-  import Header from './components/header.vue'
+  import Login from './components/Login.vue'
 
   export default {
     name: 'App',
     components: {
-      Header,
+      Login
     },
     methods: {
 

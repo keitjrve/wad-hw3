@@ -15,7 +15,7 @@
         </div>
         <div>
           <h3>Please Log In</h3>
-          <form action="index.html" method="post">
+          <form>
             <div>
               <input type="text" name="email" placeholder="Email">
             </div>
@@ -23,7 +23,9 @@
               <input type="password" name="password" placeholder="Password">
             </div>
             <div>
-              <button class="button" type="submit" name="login">Log In</button>
+              <router-link :to="{name: 'header'}">
+                <button class="button" type="submit" name="login">Log In</button>
+              </router-link>
             </div>
             <div>
               <small>
