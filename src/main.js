@@ -9,8 +9,7 @@ Vue.config.productionTip = false
 Vue.use(VueRouter);
 
 const routes = [
-  {path: "/Home", component: Home},
-
+  {path: "/", component: Home},
 ];
 
 const router = new VueRouter({routes});

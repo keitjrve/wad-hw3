@@ -1,28 +1,12 @@
 <template>
-  <div class="list">
-    <div v-for="(item, index) in items" :key="index">
-      <router-link :to="{name: 'items', params: {id: index}}" tag="div">
-        <img :src="item.image">
-        <h4>
-          <span>{{item.title}} - {{item.price}}$</span>
-        </h4>
-      </router-link>
-      <AddToCart :index="index"/>
-    </div>
-  </div>
+    <section class="main-container">
+    </section>
 </template>
 
 <script>
 
-
 export default {
-  name: 'Home',
-
-  computed: {
-    items: function () {
-      return this.$store.state.items
-    }
-  }
+  name: 'Home'
 }
 </script>
 
@@ -31,18 +15,6 @@ export default {
 * {
   font-family: 'Roboto Slab', serif;
   outline: none;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-}
-
-body {
-  background-color: #0277bd;
-  color: #263238;
 }
 
 a {

@@ -32,4 +32,8 @@
         height: 100%;
     }
 
+    body {
+        background-color: #0277bd;
+        color: #263238;
+    }
 </style>
