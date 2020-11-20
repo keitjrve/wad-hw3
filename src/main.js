@@ -9,6 +9,7 @@ Vue.use(VueRouter);
 
 const routes = [
   {path: "/index", component: index},
+
 ];
 
 const router = new VueRouter({routes});
