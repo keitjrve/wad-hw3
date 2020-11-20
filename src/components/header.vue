@@ -9,8 +9,7 @@
         <button type="button">Search</button>
       </div>
       <div class="avatar-container">
-        <img src="../assets/avatar.png" class="avatar" alt="Me">
-        <!--
+        <img src="../assets/avatar.png" class="avatar" alt="Me" onclick="toggle">
         <ul class="user-info">
             <p id="name"></p>
             <p id="epost"></p>
@@ -19,8 +18,6 @@
             <hr>
             <a href="#" onclick="location.href='login.html'">Log out</a>
         </ul>
-        -->
-
         <router-view></router-view>
       </div>
     </nav>
@@ -28,8 +25,26 @@
 </template>
 
 <script>
+import $ from 'jquery'
 export default {
-  name: "header"
+    name: "header",
+    mounted(){
+        $(document).ready(function () {
+            $(document).on("click", function (event) {
+                if (!$('.user-info').is(":hidden")) {
+                    var target = $(event.target)
+                    const $trigger = $(".avatar");
+                    if (!$trigger.is(target) && !target.is($('.user-info')) && target.parents('.user-info').length !== 1) {
+                        $('.user-info').slideUp("fast");
+                    }
+
+                }
+            });
+            $("body").on('click', '.avatar', function () {
+                $(".user-info").slideToggle("fast");
+            });
+        });
+    }
 }
 </script>
 
@@ -98,6 +113,32 @@ nav div.search-container > button {
 nav div.avatar-container {
   margin-right: 15px;
   text-align: right;
+}
+
+.user-info{
+    display: none;
+    list-style: none;
+    position: absolute;
+    margin-top: -3px;
+    padding-left: 15px;
+    right: 0;
+    height: 175px;
+    width: 250px;
+    background-color: white;
+    text-align: left;
+}
+
+.user-info li{
+    display:block;
+    float: left;
+}
+
+.user-info a{
+    font-weight: bold;
+}
+
+.user-info hr{
+    margin: 10px 0 10px -15px;
 }
 
 </style>
