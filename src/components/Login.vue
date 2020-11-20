@@ -1,4 +1,5 @@
 <template>
+  <body>
     <div class="login-page">
       <section id="login-container">
         <div>
@@ -33,6 +34,7 @@
         </div>
       </section>
     </div>
+  </body>
 </template>
 
 <script>
@@ -54,6 +56,18 @@ export default {
 
 a {
   color: #40c4ff;
+}
+
+html, body {
+   margin: 0;
+   padding: 0;
+   width: 100%;
+   height: 100%;
+ }
+
+body {
+  background-color: #0277bd;
+  color: #263238;
 }
 
 .login-page {
