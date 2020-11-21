@@ -15,7 +15,12 @@
             <p id="name"></p>
             <p id="epost"></p>
             <hr>
+        <div v-if="$route.name === 'home'">
           <router-link :to="{name: 'browse'}">Browse</router-link>
+        </div>
+        <div v-if="$route.name === 'browse'">
+          <router-link :to="{name: 'home'}">Home</router-link>
+        </div>
             <hr>
           <router-link :to="{name: 'login'}">Log out</router-link>
         </ul>

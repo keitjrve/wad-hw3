@@ -16,10 +16,14 @@ const routes = [
         path: "/postit",
         name: "header",
         component: header,
+        redirect: {
+            name: 'home'
+        },
         children: [
             {
                 path: '',
-                component: Home
+                component: Home,
+                name: 'home'
             },
             {
                 path: "/browse",
