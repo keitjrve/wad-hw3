@@ -1,4 +1,5 @@
 <template>
+  <div>
   <header>
     <nav>
       <div class="logo-container">
@@ -20,8 +21,9 @@
         </ul>
       </div>
     </nav>
-    <router-view></router-view>
   </header>
+  <router-view></router-view>
+  </div>
 </template>
 
 <script>

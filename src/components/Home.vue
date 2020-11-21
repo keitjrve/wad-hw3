@@ -4,19 +4,19 @@
     <div class="post">
       <div class="post-author">
           <span class="post-author-info">
-            <img src="res/images/avatar.png" alt="Post author">
+            <img src="../assets/avatar.png" alt="Post author">
             <small>John Doe</small>
           </span>
         <small>Sep 18, 2020 15:16</small>
-      </div>
-      <div class="post-image">
-        <img src="res/images/posts/1.jpg" alt="">
       </div>
       <div class="post-title">
         <h3>I think it's going to rain</h3>
       </div>
       <div class="post-actions">
-        <button type="button" name="like" class="like-button">100k</button>
+        <button :class="{'add-to-cart' : !selected, 'remove-from-cart' : selected}" @click="toggleItem">
+          <span v-if="!selected">Add to cart</span>
+          <span v-if="selected">Remove from cart</span>
+        </button>
       </div>
     </div>
 
@@ -61,10 +61,48 @@
 
 <script>
 
+export default {
+  name: 'Home',
+  methods: {
+    toggleItem: function() {
+      this.$store.commit('toggleItem', this.index)
+    }
+  }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+
+.add-to-cart {
+  padding: 10px;
+  color: #ffffff;
+  background-color: #455a64;
+  border: 1px solid #35444d;
+  border-radius: 3px;
+}
+
+.add-to-cart:hover {
+  cursor: pointer;
+  border: 1px solid #455a64;
+}
+
+.remove-from-cart {
+  padding: 10px;
+  color: #ffffff;
+  background-color: #642027;
+  border: 1px solid #341114;
+  border-radius: 3px;
+}
+
+.remove-from-cart:hover {
+  cursor: pointer;
+  border: 1px solid #642027;
+}
+
+
+
 * {
   font-family: 'Roboto Slab', serif;
   outline: none;
