@@ -14,13 +14,13 @@
             <p id="name"></p>
             <p id="epost"></p>
             <hr>
-            <a href="#" onclick="location.href='browse.html'">Browse</a>
+          <router-link :to="{name: 'browse'}">Browse</router-link>
             <hr>
-            <a href="#" onclick="location.href='login.html'">Log out</a>
+          <router-link :to="{name: 'login'}">Log out</router-link>
         </ul>
-        <router-view></router-view>
       </div>
     </nav>
+    <router-view></router-view>
   </header>
 </template>
 
