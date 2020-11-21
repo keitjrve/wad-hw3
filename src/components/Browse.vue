@@ -1,7 +1,7 @@
 <template>
-<div>Browse
-</div>
-
+  <body>
+  <section class="main-container"></section>
+  </body>
 </template>
 
 <script>

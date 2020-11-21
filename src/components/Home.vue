@@ -1,7 +1,62 @@
 <template>
-      <body>
-      HOME
-      </body>
+  <body>
+  <section class="main-container">
+    <div class="post">
+      <div class="post-author">
+          <span class="post-author-info">
+            <img src="res/images/avatar.png" alt="Post author">
+            <small>John Doe</small>
+          </span>
+        <small>Sep 18, 2020 15:16</small>
+      </div>
+      <div class="post-image">
+        <img src="res/images/posts/1.jpg" alt="">
+      </div>
+      <div class="post-title">
+        <h3>I think it's going to rain</h3>
+      </div>
+      <div class="post-actions">
+        <button type="button" name="like" class="like-button">100k</button>
+      </div>
+    </div>
+
+    <div class="post">
+      <div class="post-author">
+          <span class="post-author-info">
+            <img src="res/images/avatar.png" alt="Post author">
+            <small>John Doe</small>
+          </span>
+        <small>Sep 18, 2020 15:16</small>
+      </div>
+      <div class="post-title">
+        <h3>Which weighs more, a pound of feathers or a pound of bricks?</h3>
+      </div>
+      <div class="post-actions">
+        <button type="button" name="like" class="like-button">15k</button>
+      </div>
+    </div>
+
+    <div class="post">
+      <div class="post-author">
+          <span class="post-author-info">
+            <img src="res/images/avatar.png" alt="Post author">
+            <small>John Doe</small>
+          </span>
+        <small>Sep 18, 2020 17:18</small>
+      </div>
+      <div class="post-image">
+        <img src="res/images/posts/2.jpg" alt="">
+      </div>
+      <div class="post-title">
+        <h3>Felt cute, might delete later</h3>
+      </div>
+      <div class="post-actions">
+        <button type="button" name="like" class="like-button liked">10k</button>
+      </div>
+    </div>
+
+  </section>
+  </body>
 </template>
 
 <script>
@@ -15,8 +70,114 @@
   outline: none;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: #0277bd;
+  color: #263238;
+}
+
 a {
   color: #40c4ff;
+}
+
+.login-page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#login-container {
+  background-image: url(../assets/avatar.png);
+  background-size: 20% auto;
+  background-repeat: no-repeat;
+  background-position: 15px 15px;
+  min-width: 25%;
+  padding: 45px 45px;
+  background-color: #ffffff;
+  box-shadow: 0 0 15px rgba(38, 50, 56, 0.33);
+  text-align: center;
+}
+
+#login-container form div > input {
+  padding: 8px 16px;
+  margin: 4px 0;
+}
+
+button {
+  padding: 8px 16px;
+  margin: 4px 0;
+  color: #ffffff;
+  background-color: #01579b;
+  border: none;
+  border-radius: 4px;
+}
+
+button:hover {
+  box-shadow: 0 0 5px rgba(38, 50, 56, 0.7);
+  cursor: pointer;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+}
+
+header:hover {
+  box-shadow: 0 -20px 30px #4d4d4d;
+}
+
+nav {
+  display: flex;
+  background-color: #ffffff;
+  align-items: center;
+}
+
+nav div {
+  height: 30px;
+  flex-grow: 4;
+  padding: 10px;
+}
+
+nav div img {
+  height: 100%;
+  width: 30px;
+  margin-left: 15px;
+  border-radius: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+nav div.search-container > input {
+  box-sizing: border-box;
+  height: 30px;
+  width: 80%;
+  margin: 0;
+  padding: 5px;
+  border: 1px solid #e0e0e0;
+}
+
+nav div.search-container > button {
+  height: 30px;
+  width: 20%;
+  margin: 0;
+  padding: 5px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+nav div.avatar-container {
+  margin-right: 15px;
+  text-align: right;
 }
 
 .main-container {
@@ -108,5 +269,6 @@ a {
 .like-button.liked {
   background-color: #01579b;
 }
+
 
 </style>
