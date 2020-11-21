@@ -1,5 +1,4 @@
 <template>
-  <body>
   <section class="main-container">
     <div class="post">
       <div class="post-author">
@@ -54,9 +53,7 @@
         <button type="button" name="like" class="like-button liked">10k</button>
       </div>
     </div>
-
   </section>
-  </body>
 </template>
 
 <script>
@@ -124,31 +121,6 @@ a {
   color: #40c4ff;
 }
 
-.login-page {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#login-container {
-  background-image: url(../assets/avatar.png);
-  background-size: 20% auto;
-  background-repeat: no-repeat;
-  background-position: 15px 15px;
-  min-width: 25%;
-  padding: 45px 45px;
-  background-color: #ffffff;
-  box-shadow: 0 0 15px rgba(38, 50, 56, 0.33);
-  text-align: center;
-}
-
-#login-container form div > input {
-  padding: 8px 16px;
-  margin: 4px 0;
-}
-
 button {
   padding: 8px 16px;
   margin: 4px 0;
@@ -163,60 +135,6 @@ button:hover {
   cursor: pointer;
 }
 
-header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1;
-}
-
-header:hover {
-  box-shadow: 0 -20px 30px #4d4d4d;
-}
-
-nav {
-  display: flex;
-  background-color: #ffffff;
-  align-items: center;
-}
-
-nav div {
-  height: 30px;
-  flex-grow: 4;
-  padding: 10px;
-}
-
-nav div img {
-  height: 100%;
-  width: 30px;
-  margin-left: 15px;
-  border-radius: 100%;
-  object-fit: cover;
-  object-position: top center;
-}
-
-nav div.search-container > input {
-  box-sizing: border-box;
-  height: 30px;
-  width: 80%;
-  margin: 0;
-  padding: 5px;
-  border: 1px solid #e0e0e0;
-}
-
-nav div.search-container > button {
-  height: 30px;
-  width: 20%;
-  margin: 0;
-  padding: 5px;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-nav div.avatar-container {
-  margin-right: 15px;
-  text-align: right;
-}
 
 .main-container {
   width: 50%;
@@ -307,6 +225,4 @@ nav div.avatar-container {
 .like-button.liked {
   background-color: #01579b;
 }
-
-
 </style>

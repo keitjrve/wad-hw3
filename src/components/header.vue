@@ -10,7 +10,7 @@
         <button type="button">Search</button>
       </div>
       <div class="avatar-container">
-        <img src="../assets/avatar.png" class="avatar" alt="Me" onclick="toggle">
+        <img src="../assets/avatar.png" class="avatar" alt="Me">
         <ul class="user-info">
             <p id="name"></p>
             <p id="epost"></p>
@@ -42,7 +42,7 @@ export default {
 
                 }
             });
-            $("body").on('click', '.avatar', function () {
+            $("header").on('click', '.avatar', function () {
                 $(".user-info").slideToggle("fast");
             });
         });
