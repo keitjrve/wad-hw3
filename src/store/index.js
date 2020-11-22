@@ -1,7 +1,24 @@
 import axios from 'axios'
 import Vuex from 'vuex'
 import Vue from 'vue'
+import post from './post'
+//import user from './user'
 
+Vue.use(Vuex)
+export default function () {
+    const Store = new Vuex.Store({
+        modules: {
+            post,
+            //user
+        },
+        // enable strict mode (adds overhead!)
+        // for dev mode only
+        strict: process.env.DEV
+    })
+    return Store
+}
+
+/*
 Vue.use(Vuex);
 
 const state = {
@@ -41,10 +58,14 @@ const mutations = {
         state.loggedIn = loggedIn
     }
 }
-
+ */
+/*
 export default new Vuex.store({
     state,
     getters,
     actions,
     mutations
 })
+
+ */
+
