@@ -43,15 +43,7 @@ export default {
     }
   },
   mounted(){
-      this.$store.dispatch("getPosts");},
-  filters: {
-    uppercaseK: function (value) {
-      if (!value) {
-        return "";
-      }
-      value = value.toString()
-      return value.slice(0, value.length-1)  +  value.charAt(value.length-1).toUpperCase();
-    }
+      this.$store.dispatch("getPosts");
   }
 }
 </script>

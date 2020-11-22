@@ -1,5 +1,5 @@
 <template>
-  <Button v-bind:class="{'like-button': !clicked, 'liked': clicked}" @click ="clicked = !clicked">{{ like.likes }}</Button>
+  <Button v-bind:class="{'like-button': !clicked, 'liked': clicked}" @click ="clicked = !clicked">{{ like.likes | uppercaseK }}</Button>
 </template>
 
 <script>
@@ -11,6 +11,15 @@ export default {
       clicked: false,
     }
   },
+  filters: {
+    uppercaseK: function (value) {
+      if (!value) {
+        return "";
+      }
+      value = value.toString()
+      return value.slice(0, value.length-1)  +  value.charAt(value.length-1).toUpperCase();
+    }
+  }
 }
 </script>
 
