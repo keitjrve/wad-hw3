@@ -43,4 +43,9 @@ export default {
   text-align: left;
   border: none;
 }
+
+* {
+  font-family: 'Roboto Slab', serif;
+  outline: none;
+}
 </style>

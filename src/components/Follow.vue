@@ -18,7 +18,7 @@ export default {
 
 <style scoped>
 .follow {
-  background-color: #590f6d;
+  background-color: #82008f;
   color: white;
   box-shadow: 0 0 5px rgba(38, 50, 56, 0.7);
   cursor: pointer;
@@ -39,6 +39,11 @@ export default {
   height: 30px;
   margin: 4px 0;
   border-radius: 4px;
+}
+
+* {
+  font-family: 'Roboto Slab', serif;
+  outline: none;
 }
 
 </style>
