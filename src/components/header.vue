@@ -15,14 +15,14 @@
             <p id="name">{{ user.firstname +  " " + user.lastname}}</p>
             <p id="epost">{{ user.email }}</p>
             <hr>
-          <div v-if="$route.name === 'home'">
-            <router-link :to="{name: 'browse'}">Browse</router-link>
-          </div>
-          <div v-if="$route.name === 'browse'">
-            <router-link :to="{name: 'home'}">Home</router-link>
-          </div>
+            <div class="test" v-if="$route.name === 'home'">
+              <router-link :to="{name: 'browse'}">Browse</router-link>
+            </div>
+            <div class="test" v-if="$route.name === 'browse'">
+              <router-link :to="{name: 'home'}">Home</router-link>
+            </div>
             <hr>
-          <router-link :to="{name: 'login'}">Log out</router-link>
+            <router-link :to="{name: 'login'}">Log out</router-link>
         </ul>
       </div>
     </nav>
@@ -135,7 +135,7 @@ nav div.avatar-container {
     margin-top: -3px;
     padding-left: 15px;
     right: 0;
-    height: 175px;
+    height: 165px;
     width: 250px;
     background-color: white;
     text-align: left;
@@ -154,4 +154,10 @@ nav div.avatar-container {
     margin: 10px 0 10px -15px;
 }
 
+.test{
+  height: 5px;
+  padding-top: 5px;
+  margin-top: -5px;
+  margin-left: -10px;
+}
 </style>
