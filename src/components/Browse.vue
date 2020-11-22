@@ -59,8 +59,6 @@ export default {
     text-align: center;
   }
 
-
-
   .user img {
     width: 90px;
     height: 90px;
@@ -94,4 +92,5 @@ export default {
   .users {
     text-align:center;
   }
+
 </style>
