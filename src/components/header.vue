@@ -15,10 +15,10 @@
             <p id="name">{{ user.firstname +  " " + user.lastname}}</p>
             <p id="epost">{{ user.email }}</p>
             <hr>
-            <div class="test" v-if="$route.name === 'home'">
+            <div class="route-div" v-if="$route.name === 'home'">
               <router-link :to="{name: 'browse'}">Browse</router-link>
             </div>
-            <div class="test" v-if="$route.name === 'browse'">
+            <div class="route-div" v-if="$route.name === 'browse'">
               <router-link :to="{name: 'home'}">Home</router-link>
             </div>
             <hr>
@@ -154,7 +154,7 @@ nav div.avatar-container {
     margin: 10px 0 10px -15px;
 }
 
-.test{
+.route-div{
   height: 5px;
   padding-top: 5px;
   margin-top: -5px;
