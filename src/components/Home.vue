@@ -1,28 +1,30 @@
 <template>
   <section class="main-container">
-    <div class="post" v-for="post in posts" :key="post.id">
-        <div class="post-autor">
-            <span class="post-autor-info">
-                <img alt="Author avatar" :src="post.author.avatar"/>
-                <small>{{ post.author.firstname + " " + post.author.lastname}}</small>
-            </span>
-            <small>{{ post.createTime }}</small>
-        </div>
-        <div class="post-image" v-if="post.media != null">
-            <div v-if="post.media.type === 'image'">
-                <img :src="post.media.url"/>
+    <div v-for="post in posts" :key="post.id">
+        <div class="post">
+            <div class="post-author">
+                <span class="post-author-info">
+                    <img alt="Author avatar" :src="post.author.avatar"/>
+                    <small>{{ post.author.firstname + " " + post.author.lastname}}</small>
+                </span>
+                <small>{{ post.createTime }}</small>
             </div>
-            <div v-if="post.media.type === 'video'">
-                <iframe :src="post.media.url"/>
+            <div class="post-image" v-if="post.media != null">
+                <div v-if="post.media.type === 'image'">
+                    <img :src="post.media.url"/>
+                </div>
+                <div v-if="post.media.type === 'video'">
+                    <iframe :src="post.media.url"/>
+                </div>
             </div>
-        </div>
-        <div class="post-title">
-            <div v-if="post.text != null">
-                <h3>{{ post.text }}</h3>
+            <div class="post-title">
+                <div v-if="post.text != null">
+                    <h3>{{ post.text }}</h3>
+                </div>
             </div>
-        </div>
-        <div class="post-actions">
-            <button type="button" name="like" class="like-button">{{ post.likes }}</button>
+            <div class="post-actions">
+                <button type="button" name="like" class="like-button">{{ post.likes }}</button>
+            </div>
         </div>
     </div>
   </section>
@@ -33,10 +35,10 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   name: 'Home',
   computed: {
-    ...mapGetters("post", ["posts"])
+    ...mapGetters("post", ["posts"]),
   },
   methods: {
-      ...mapActions("post", ["getPosts"])
+      ...mapActions("post", ["getPosts"]),
   },
   mounted(){
       this.getPosts();
