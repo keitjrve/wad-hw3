@@ -23,7 +23,7 @@
           </div>
         </div>
         <div class="post-actions">
-          <button type="button" name="like" class="like-button">{{ post.likes }}</button>
+          <Like/>
         </div>
       </div>
     </div>
@@ -31,9 +31,12 @@
 </template>
 
 <script>
-import $ from 'jquery'
+import Like from "@/components/Like";
 export default {
   name: 'Home',
+  components: {
+    Like,
+  },
   computed: {
     posts() {
       return this.$store.state.posts
@@ -41,17 +44,6 @@ export default {
   },
   mounted(){
       this.$store.dispatch("getPosts");
-      let clicked = false;
-      $(document).on("click", '.like-button', function(){
-        if(!clicked) {
-          $(this).css('background-color', '#429bf5');
-          clicked = true
-      }
-      else{
-          $(this).css('background-color', '#8a8a8a')
-          clicked = false
-      }
-    })
   }
 }
 </script>
@@ -165,23 +157,5 @@ button:hover {
 
 .post .post-title ~ .post-actions {
   padding: 10px;
-}
-
-.like-button {
-  background-image: url(../assets/like.png);
-  background-size: 15px;
-  background-repeat: no-repeat;
-  background-position: 5px center;
-  background-color: #8a8a8a;
-  width: 60px;
-  height: 25px;
-  padding-left: 23px;
-  line-height: 10px;
-  text-align: left;
-  border: none;
-}
-
-.like-button.liked {
-  background-color: #01579b;
 }
 </style>

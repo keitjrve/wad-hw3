@@ -6,7 +6,7 @@
           <img alt="avatar" :src="user.avatar"/>
           <h3 class = "name">{{ user.firstname + " " + user.lastname }}</h3>
           <div class="user-actions">
-            <button type="button" name="follow" class="follow-button">Follow</button>
+            <Follow/>
           </div>
         </div>
       </div>
@@ -16,8 +16,12 @@
 
 <script>
 import $ from 'jquery'
+import Follow from "@/components/Follow";
 export default {
   name: "Browse",
+  components: {
+    Follow,
+  },
   computed: {
     users() {
       return this.$store.state.users
@@ -55,13 +59,7 @@ export default {
     text-align: center;
   }
 
-  .follow-button {
-    background-color: #590f6d;
-    width: 40%;
-    height: 30px;
-    padding: 5px;
-    color: white;
-  }
+
 
   .user img {
     width: 90px;
