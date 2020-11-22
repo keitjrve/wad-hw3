@@ -23,7 +23,7 @@
           </div>
         </div>
         <div class="post-actions">
-          <Like/>
+          <button type="button" name="like" class="like-button">{{ post.likes }}</button>
         </div>
       </div>
     </div>
@@ -43,7 +43,15 @@ export default {
     }
   },
   mounted(){
-      this.$store.dispatch("getPosts");
+      this.$store.dispatch("getPosts");},
+  filters: {
+    uppercaseK: function (value) {
+      if (!value) {
+        return "";
+      }
+      value = value.toString()
+      return value.slice(0, value.length-1)  +  value.charAt(value.length-1).toUpperCase();
+    }
   }
 }
 </script>
