@@ -23,7 +23,7 @@
           </div>
         </div>
         <div class="post-actions">
-          <button type="button" name="like" class="like-button">{{ post.likes }}</button>
+          <Like/>
         </div>
       </div>
     </div>
