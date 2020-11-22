@@ -147,7 +147,7 @@ button:hover {
   padding: 10px;
 }
 
-.post .post-image img, video {
+.post .post-image img, video, iframe {
   width: 100%;
   min-height: 150px;
   max-height: 350px;
