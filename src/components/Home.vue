@@ -1,69 +1,45 @@
 <template>
   <section class="main-container">
-    <div class="post">
-      <div class="post-author">
-          <span class="post-author-info">
-            <img src="../assets/avatar.png" alt="Post author">
-            <small>John Doe</small>
-          </span>
-        <small>Sep 18, 2020 15:16</small>
-      </div>
-      <div class="post-title">
-        <h3>I think it's going to rain</h3>
-      </div>
-      <div class="post-actions">
-        <button :class="{'add-to-cart' : !selected, 'remove-from-cart' : selected}" @click="toggleItem">
-          <span v-if="!selected">Add to cart</span>
-          <span v-if="selected">Remove from cart</span>
-        </button>
-      </div>
-    </div>
-
-    <div class="post">
-      <div class="post-author">
-          <span class="post-author-info">
-            <img src="res/images/avatar.png" alt="Post author">
-            <small>John Doe</small>
-          </span>
-        <small>Sep 18, 2020 15:16</small>
-      </div>
-      <div class="post-title">
-        <h3>Which weighs more, a pound of feathers or a pound of bricks?</h3>
-      </div>
-      <div class="post-actions">
-        <button type="button" name="like" class="like-button">15k</button>
-      </div>
-    </div>
-
-    <div class="post">
-      <div class="post-author">
-          <span class="post-author-info">
-            <img src="res/images/avatar.png" alt="Post author">
-            <small>John Doe</small>
-          </span>
-        <small>Sep 18, 2020 17:18</small>
-      </div>
-      <div class="post-image">
-        <img src="res/images/posts/2.jpg" alt="">
-      </div>
-      <div class="post-title">
-        <h3>Felt cute, might delete later</h3>
-      </div>
-      <div class="post-actions">
-        <button type="button" name="like" class="like-button liked">10k</button>
-      </div>
+    <div class="post" v-for="post in posts" :key="post.id">
+        <div class="post-autor">
+            <span class="post-autor-info">
+                <img alt="Author avatar" :src="post.author.avatar"/>
+                <small>{{ post.author.firstname + " " + post.author.lastname}}</small>
+            </span>
+            <small>{{ post.createTime }}</small>
+        </div>
+        <div class="post-image" v-if="post.media != null">
+            <div v-if="post.media.type === 'image'">
+                <img :src="post.media.url"/>
+            </div>
+            <div v-if="post.media.type === 'video'">
+                <iframe :src="post.media.url"/>
+            </div>
+        </div>
+        <div class="post-title">
+            <div v-if="post.text != null">
+                <h3>{{ post.text }}</h3>
+            </div>
+        </div>
+        <div class="post-actions">
+            <button type="button" name="like" class="like-button">{{ post.likes }}</button>
+        </div>
     </div>
   </section>
 </template>
 
 <script>
-
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: 'Home',
+  computed: {
+    ...mapGetters("post", ["posts"])
+  },
   methods: {
-    toggleItem: function() {
-      this.$store.commit('toggleItem', this.index)
-    }
+      ...mapActions("post", ["getPosts"])
+  },
+  mounted(){
+      this.getPosts();
   }
 }
 </script>
