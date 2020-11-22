@@ -23,7 +23,7 @@
           </div>
         </div>
         <div class="post-actions">
-          <Like/>
+          <Like :like="post"/>
         </div>
       </div>
     </div>

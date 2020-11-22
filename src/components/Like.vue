@@ -1,10 +1,11 @@
 <template>
-  <Button v-bind:class="{'like-button': !clicked, 'liked': clicked}" @click ="clicked = !clicked"/>
+  <Button v-bind:class="{'like-button': !clicked, 'liked': clicked}" @click ="clicked = !clicked">{{ like.likes }}</Button>
 </template>
 
 <script>
 export default {
   name: "Like",
+  props: ["like"],
   data(){
     return {
       clicked: false,
