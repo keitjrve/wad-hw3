@@ -1,4 +1,3 @@
-import axios from 'axios'
 import Vuex from 'vuex'
 import Vue from 'vue'
 import post from './post'

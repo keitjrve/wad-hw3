@@ -1,37 +1,38 @@
 <template>
   <section class="main-container">
     <div v-for="post in posts" :key="post.id">
-        <div class="post">
-            <div class="post-author">
+      <div class="post">
+        <div class="post-author">
                 <span class="post-author-info">
                     <img alt="Author avatar" :src="post.author.avatar"/>
-                    <small>{{ post.author.firstname + " " + post.author.lastname}}</small>
+                    <small>{{ post.author.firstname + " " + post.author.lastname }}</small>
                 </span>
-                <small>{{ post.createTime }}</small>
-            </div>
-            <div class="post-image" v-if="post.media != null">
-                <div v-if="post.media.type === 'image'">
-                    <img :src="post.media.url"/>
-                </div>
-                <div v-if="post.media.type === 'video'">
-                    <iframe :src="post.media.url"/>
-                </div>
-            </div>
-            <div class="post-title">
-                <div v-if="post.text != null">
-                    <h3>{{ post.text }}</h3>
-                </div>
-            </div>
-            <div class="post-actions">
-                <button type="button" name="like" class="like-button">{{ post.likes }}</button>
-            </div>
+          <small>{{ post.createTime }}</small>
         </div>
+        <div class="post-image" v-if="post.media != null">
+          <div v-if="post.media.type === 'image'">
+            <img :src="post.media.url"/>
+          </div>
+          <div v-if="post.media.type === 'video'">
+            <iframe :src="post.media.url"/>
+          </div>
+        </div>
+        <div class="post-title">
+          <div v-if="post.text != null">
+            <h3>{{ post.text }}</h3>
+          </div>
+        </div>
+        <div class="post-actions">
+          <button type="button" name="like" class="like-button">{{ post.likes }}</button>
+        </div>
+      </div>
     </div>
   </section>
 </template>
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import $ from 'jquery'
 export default {
   name: 'Home',
   computed: {
@@ -42,41 +43,23 @@ export default {
   },
   mounted(){
       this.getPosts();
+      let clicked = false;
+      $(document).on("click", '.like-button', function(){
+        if(!clicked) {
+          $(this).css('background-color', '#429bf5');
+          clicked = true
+      }
+      else{
+          $(this).css('background-color', '#8a8a8a')
+          clicked = false
+      }
+    })
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
-
-.add-to-cart {
-  padding: 10px;
-  color: #ffffff;
-  background-color: #455a64;
-  border: 1px solid #35444d;
-  border-radius: 3px;
-}
-
-.add-to-cart:hover {
-  cursor: pointer;
-  border: 1px solid #455a64;
-}
-
-.remove-from-cart {
-  padding: 10px;
-  color: #ffffff;
-  background-color: #642027;
-  border: 1px solid #341114;
-  border-radius: 3px;
-}
-
-.remove-from-cart:hover {
-  cursor: pointer;
-  border: 1px solid #642027;
-}
-
-
 
 * {
   font-family: 'Roboto Slab', serif;
