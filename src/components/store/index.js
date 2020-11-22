@@ -6,7 +6,8 @@ Vue.use(Vuex);
 
 const state = {
     posts: [],
-    user: {}
+    user: {},
+    users: []
 }
 const getters = {}
 const actions = {
@@ -19,6 +20,11 @@ const actions = {
         axios.get('https://private-anon-fa65eb219a-wad20postit.apiary-mock.com/users/1').then(response => {
              commit('SET_USER', response.data)
         })
+    },
+    getUsers({ commit }){
+        axios.get('https://private-anon-fa65eb219a-wad20postit.apiary-mock.com/profiles').then(response => {
+            commit('SET_USERS', response.data)
+        })
     }
 }
 const mutations = {
@@ -27,6 +33,9 @@ const mutations = {
     },
     SET_USER(state, user){
         state.user = user
+    },
+    SET_USERS(state, users){
+        state.users = users
     }
 }
 
