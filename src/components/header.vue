@@ -10,17 +10,17 @@
         <button type="button">Search</button>
       </div>
       <div class="avatar-container">
-        <img src="../assets/avatar.png" class="avatar" alt="Me">
+        <img :src="user.avatar" class="avatar" alt="Me">
         <ul class="user-info">
-            <p id="name"></p>
-            <p id="epost"></p>
+            <p id="name">{{ user.firstname +  " " + user.lastname}}</p>
+            <p id="epost">{{ user.email }}</p>
             <hr>
-        <div v-if="$route.name === 'home'">
-          <router-link :to="{name: 'browse'}">Browse</router-link>
-        </div>
-        <div v-if="$route.name === 'browse'">
-          <router-link :to="{name: 'home'}">Home</router-link>
-        </div>
+          <div v-if="$route.name === 'home'">
+            <router-link :to="{name: 'browse'}">Browse</router-link>
+          </div>
+          <div v-if="$route.name === 'browse'">
+            <router-link :to="{name: 'home'}">Home</router-link>
+          </div>
             <hr>
           <router-link :to="{name: 'login'}">Log out</router-link>
         </ul>
@@ -35,7 +35,13 @@
 import $ from 'jquery'
 export default {
     name: "header",
+    computed: {
+      user(){
+        return this.$store.state.user
+      }
+    },
     mounted(){
+        this.$store.dispatch("getUser");
         $(document).ready(function () {
             $(document).on("click", function (event) {
                 if (!$('.user-info').is(":hidden")) {
