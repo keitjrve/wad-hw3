@@ -23,7 +23,7 @@
           </div>
         </div>
         <div class="post-actions">
-          <button type="button" name="like" class="like-button">{{ post.likes }}</button>
+          <button type="button" name="like" class="like-button">{{ post.likes | uppercaseK }}</button>
         </div>
       </div>
     </div>
@@ -52,6 +52,15 @@ export default {
           clicked = false
       }
     })
+  },
+  filters: {
+    uppercaseK: function (value) {
+      if (!value) {
+        return "";
+      }
+      value = value.toString()
+      return value.slice(0, value.length-1)  +  value.charAt(value.length-1).toUpperCase();
+    }
   }
 }
 </script>
