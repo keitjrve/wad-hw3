@@ -5,7 +5,8 @@ import VueRouter from 'vue-router'
 import Home from "./components/Home";
 import header from "./components/header";
 import Login from "./components/Login";
-import Browse from "@/components/Browse";
+import Browse from "./components/Browse";
+import store from './components/store';
 
 
 Vue.config.productionTip = false
@@ -40,5 +41,6 @@ const router = new VueRouter({routes});
 
 new Vue({
     router,
+    store,
     render: h => h(App),
 }).$mount('#app')

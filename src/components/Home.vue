@@ -31,18 +31,16 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
 import $ from 'jquery'
 export default {
   name: 'Home',
   computed: {
-    ...mapGetters("post", ["posts"]),
-  },
-  methods: {
-      ...mapActions("post", ["getPosts"]),
+    posts() {
+      return this.$store.state.posts
+    }
   },
   mounted(){
-      this.getPosts();
+      this.$store.dispatch("getPosts");
       let clicked = false;
       $(document).on("click", '.like-button', function(){
         if(!clicked) {
